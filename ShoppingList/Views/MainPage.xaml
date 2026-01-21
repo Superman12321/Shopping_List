@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            Margin="30">
+
+            <Editor x:Name="nameProduct"
+                Placeholder="Write your product"
+                Margin="5"
+                HeightRequest="40"/>
+
+            <Editor x:Name="productQuantity"
+                Placeholder="Write your product quantity"
+                Margin="5"
+                HeightRequest="40"/>
+
+            <Picker x:Name="picker"
+                Title="Select category"
+                ItemDisplayBinding="{Binding CategoryName}"/>
+
+            <Picker x:Name="pickerQuantity"
+                Title="Select quantity">
+                <Picker.Items>
+                    <x:String>szt</x:String>
+                    <x:String>Kg</x:String>
+                    <x:String>dag</x:String>
+                <x:String>g</x:String>
+            </Picker.Items>
+            </Picker>
+
+            <HorizontalStackLayout Padding="10">
+
+                <CheckBox x:Name="myCheckBox"
+                  Color="Gold"/>
+
+                <Label x:Name="statusLabel"
+                   Text="Optimal product?"
+                   FontSize="15"
+                   Margin="12"
+                   HorizontalOptions="Center" />
+
+            </HorizontalStackLayout>
+
+            <Button
+                    Grid.Column="1"
+                    Text="Add Product"
+                    HorizontalOptions="Center"
+                    Margin="5"
+                    WidthRequest="400"
+                    BackgroundColor="MidnightBlue"
+                    TextColor="Grey"
+                    Clicked="addProduct"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

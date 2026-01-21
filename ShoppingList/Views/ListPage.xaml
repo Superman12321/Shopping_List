@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.ListPage"
+             Title="ListPage">
+    <ScrollView>
+        <VerticalStackLayout 
+            Padding="30,0"
+            Spacing="25"
+            Margin="30">
+
+            <Label Text="Aktualna lista"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="gray"/>
+
+            <Button Text="Wyświetl produkty"
+                    BackgroundColor="MidnightBlue"
+                    TextColor="White"
+                    Margin="10"
+                    Clicked="ShowProducts_Clicked"/>
+
+            <CollectionView x:Name="productsList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding ProductName}"
+                                   FontSize="20"
+                                   Margin="10"/>
+                            <Label Text=" :"
+                                   FontSize="18"
+                                   Margin="0,14,0,0"
+                                   TextColor="Gray"/>
+                            <Label Text="{Binding QuantityProduct}"
+                                    FontSize="20"
+                                    Margin="10"/>
+                            <Label Text="{Binding QuantityCategory}"
+                                    FontSize="20"
+                                    Margin="10"/>       
+                            <Label Text="{Binding OptimalText}"
+                                   FontSize="15"
+                                   TextColor="Gold"
+                                   Margin="16"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

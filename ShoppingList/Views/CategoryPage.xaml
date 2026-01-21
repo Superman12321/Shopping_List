@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ShoppingList.Views"
+             x:Class="ShoppingList.CategoryPage">
+    <ScrollView>
+        <VerticalStackLayout 
+            Padding="30,0"
+            Spacing="25"
+            Margin="30">
+
+            <Picker x:Name="categoryPicker"
+                    Title="Choose your category"
+                    ItemDisplayBinding="{Binding CategoryName}"/>
+
+            <Button Text="LoadProduct"
+                    Margin="5"
+                    HorizontalOptions="Start"
+                    WidthRequest="400"
+                    BackgroundColor="MidnightBlue"
+                    TextColor="Grey"
+                    Clicked="loadProducts"/>
+
+            <Label x:Name="currentCategoryLabel"
+                FontSize="18"
+                FontAttributes="Bold"
+                Margin="10"                    
+                TextColor="Grey"/>
+
+            <CollectionView x:Name="productsList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:ItemView/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

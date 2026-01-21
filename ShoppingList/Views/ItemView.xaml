@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.Views.ItemView">
+    <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button
+                Text="✓"
+                Margin="10"
+                BackgroundColor="MidnightBlue"
+                TextColor="Grey"
+                Clicked="unCheck"
+                CommandParameter="{Binding}"
+            />
+
+
+            <Label Text="{Binding ProductName}"
+                FontSize="20"
+                Margin="10">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsChecked}" Value="True">
+                                <Setter Property="TextDecorations" Value="Strikethrough" />
+                                <Setter Property="TextColor" Value="Gray" />
+                        </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <Button
+        Text="-"
+        Margin="5"
+        BackgroundColor="MidnightBlue"
+        TextColor="Grey"
+        Clicked="subtract"
+        CommandParameter="{Binding}"
+    />
+
+            <Entry Text="{Binding QuantityProduct}"
+         BackgroundColor="MidnightBlue"
+         TextColor="Grey"
+         HeightRequest="20"
+         WidthRequest="60"
+     />
+
+            <Label Text="{Binding QuantityCategory}"
+        FontSize="20"
+        Margin="10">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding IsChecked}" Value="True">
+                        <Setter Property="TextDecorations" Value="Strikethrough" />
+                        <Setter Property="TextColor" Value="Gray" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <Button
+        Text="+"
+        Margin="5"
+        BackgroundColor="MidnightBlue"
+        TextColor="Grey"
+        Clicked="add"
+        CommandParameter="{Binding}"
+    />
+
+
+            <Label 
+        Text="{Binding OptimalText}"
+        FontSize="15"
+        TextColor="Gold"
+        Margin="16"/>
+
+            <Button
+        Text="Delete"
+        Margin="10"
+        BackgroundColor="MidnightBlue"
+        TextColor="Grey"
+        Clicked="delete"
+        CommandParameter="{Binding}"
+    />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentView>
